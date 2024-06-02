@@ -1,7 +1,116 @@
-/* Réduire la taille des images dans le panier */
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    background: url('InShot_20240319_134419112.png') no-repeat center center;
+    background-size: 30%; /* Ajustez la taille du logo en filigrane */
+    opacity: 0.1; /* Ajustez l'opacité pour un effet de filigrane */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Placez le filigrane derrière tout le contenu */
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: relative;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    padding: 20px;
+}
+
+.introduction {
+    text-align: center;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.item {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Styles pour le panier */
+.cart-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
 .cart-item img {
     max-width: 100px;
     height: auto;
+}
+
+.cart-item button {
+    margin: 0 5px;
 }
 
 /* Style pour la modal de sélection de couleur */
@@ -29,6 +138,11 @@
     text-align: center;
 }
 
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -54,4 +168,43 @@
     height: 30px;
     margin: 5px;
     cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    header {
+        padding: 0.5em 0;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        padding: 6px 12px;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    header {
+        padding: 0.5em 0;
+    }
 }

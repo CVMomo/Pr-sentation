@@ -13,8 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
             itemElement.innerHTML = `
                 <img src="${item.imgSrc}" alt="${item.alt}">
                 <p>${item.alt}</p>
-                <button onclick="removeFromCart(${index})">Retirer</button>
-                <button onclick="openColorModal('${item.imgSrc}')">Couleur</button>
+                <div>
+                    <button onclick="removeFromCart(${index})">Retirer</button>
+                    <button onclick="openColorModal('${item.imgSrc}')">Couleur</button>
+                </div>
             `;
             cartItemsContainer.appendChild(itemElement);
         });
@@ -60,14 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.onclick = (event) => {
         if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
-
-    window.changeColor = (color) => {
-        const imgSrc = modalImage.src;
-        const imgBase = imgSrc.substring(0, imgSrc.lastIndexOf('.'));
-        const newImgSrc = `${imgBase}_${color}.jpg`; // Assuming the new images follow this naming pattern
-        modalImage.src = newImgSrc;
-    };
-});
+           

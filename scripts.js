@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             itemElement.innerHTML = `
                 <img src="${item.imgSrc}" alt="${item.alt}">
                 <p>${item.alt}</p>
-                <div>
-                    <button onclick="removeFromCart(${index})">Retirer</button>
-                    <button onclick="openColorModal('${item.imgSrc}')">Couleur</button>
-                </div>
+                <button onclick="removeFromCart(${index})">Retirer</button>
             `;
             cartItemsContainer.appendChild(itemElement);
         });
@@ -45,21 +42,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     renderCartItems();
-
-    // Modal logic
-    const modal = document.getElementById("color-modal");
-    const modalImage = document.getElementById("modal-image");
-    const span = document.getElementsByClassName("close")[0];
-
-    window.openColorModal = (imgSrc) => {
-        modal.style.display = "block";
-        modalImage.src = imgSrc;
-    };
-
-    span.onclick = () => {
-        modal.style.display = "none";
-    };
-
-    window.onclick = (event) => {
-        if (event.target == modal) {
-           
+});

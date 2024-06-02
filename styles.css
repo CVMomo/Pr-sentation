@@ -21,6 +21,7 @@ header {
 
 h1 {
     margin: 0;
+    padding-top: 10px;
 }
 
 section {
@@ -69,4 +70,45 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #f1f1f1;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .logo {
+        height: 40px;
+    }
+
+    header {
+        padding: 0.5em 0;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        height: 30px;
+    }
+
+    button {
+        padding: 6px 12px;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    header {
+        padding: 0.5em 0;
+    }
 }

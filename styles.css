@@ -2,11 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    position: relative; /* Ajouté pour le positionnement de la filigrane */
 }
 
-body::before {
-    content: "";
-    background: url('logo.png') no-repeat center center;
+.watermark {
+    background: url('InShot_20240319_134419112.png') no-repeat center center;
     background-size: 30%; /* Ajustez la taille du logo en filigrane */
     opacity: 0.1; /* Ajustez l'opacité pour un effet de filigrane */
     position: fixed;
@@ -22,7 +22,6 @@ header {
     color: white;
     text-align: center;
     padding: 1em 0;
-    position: relative;
 }
 
 h1 {

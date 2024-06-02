@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.imgSrc}" alt="${item.alt}">
                 <p>${item.alt}</p>
                 <button onclick="removeFromCart(${index})">Retirer</button>
+                <button onclick="openColorModal('${item.imgSrc}')">Couleur</button>
             `;
             cartItemsContainer.appendChild(itemElement);
         });
@@ -42,4 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     renderCartItems();
+
+    // Modal logic
+    const modal = document.getElementById("color-modal");
+    const modalImage = document.getElementById("modal-image");
+    const span = document.getElementsByClassName("close")[0];
+
+    window.openColorModal = (imgSrc) => {
+        modal.style.display = "block";
+        modalImage.src = imgSrc;
+    };
+
+    span.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    window.changeColor = (color) => {
+        const imgSrc = modalImage.src;
+        const imgBase = imgSrc.substring(0, imgSrc.lastIndexOf('.'));
+        const newImgSrc = `${imgBase}_${color}.jpg`; // Assuming the new images follow this naming pattern
+        modalImage.src = newImgSrc;
+    };
 });

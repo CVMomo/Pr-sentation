@@ -1,5 +1,3 @@
-// scripts.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -12,8 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
             itemElement.className = "cart-item";
             itemElement.innerHTML = `
                 <img src="${item.imgSrc}" alt="${item.alt}">
-                <p>${item.alt}</p>
-                <button onclick="removeFromCart(${index})">Retirer</button>
+                <div class="cart-item-details">
+                    <p>${item.alt}</p>
+                </div>
+                <div class="cart-item-actions">
+                    <button onclick="removeFromCart(${index})">Retirer</button>
+                </div>
             `;
             cartItemsContainer.appendChild(itemElement);
         });
@@ -33,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.finalizePurchase = () => {
         if (cartItems.length > 0) {
+            const items = cartItems.map(item => item.alt).join(', ');
+            const message = `Bonjour, je souhaite acheter les modèles suivants: ${items}`;
+            const phoneNumber = '+22601368949';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
             alert("Merci pour votre achat !");
             localStorage.removeItem("cartItems");
             renderCartItems();

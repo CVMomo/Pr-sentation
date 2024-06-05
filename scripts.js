@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cartItems.length > 0) {
             const items = cartItems.map(item => item.alt).join(', ');
             const message = `Bonjour, je souhaite acheter les modèles suivants: ${items}`;
-            const phoneNumber = '+22601368949';
+            const phoneNumber = '+22676338346';
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             alert("Merci pour votre achat !");

@@ -91,6 +91,25 @@ button:hover {
     border-radius: 5px;
 }
 
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+}
+
 footer {
     text-align: center;
     padding: 20px;
